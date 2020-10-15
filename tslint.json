@@ -6,10 +6,6 @@
     ],
     "jsRules": {},
     "rules": {
-      "prettier": [true, {
-        "quotes": true,
-        "semi": false
-      }],
       "mocha-no-side-effect-code": false,
       "missing-jsdoc": false,
       "export-name": false,
