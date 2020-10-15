@@ -1,18 +1,18 @@
 import underscore from "underscore"
 import { xml2json } from "xml-js"
-import { IDiffResultModel } from "../lib/model/diff-result-model"
-import { IFieldOptions, ISchema } from "../lib/model/field-options-schema"
-import { IOptionsModel } from "../lib/model/options-model"
+import { IDiffResultModel } from "./model/diff-result-model"
+import { IFieldOptions, ISchema } from "./model/field-options-schema"
+import { IOptionsModel } from "./model/options-model"
 
 const defaultOptions = {
-  compareElementValues: true
+  compareElementValues: true,
 }
 
 const defaultXml2JsOptions = {
   compact: true,
   ignoreDoctype: true,
   ignoreDeclaration: true,
-  ignoreAttributes: true
+  ignoreAttributes: true,
 }
 
 const compareObjects = (
@@ -27,7 +27,7 @@ const compareObjects = (
   const bk: string[] = Object.keys(b)
   const allKeys: string[] = underscore.union(ak, bk)
 
-  allKeys.forEach(key => {
+  allKeys.forEach((key) => {
     const formattedKey: string = (keyPrefix || "") + key
     const fieldOptions: IFieldOptions = schema[key] || {}
 
@@ -38,7 +38,7 @@ const compareObjects = (
         const diffResult: IDiffResultModel = {
           path: formattedKey,
           resultType: "missing element",
-          message: `field ${formattedKey} not present in lhs`
+          message: `field ${formattedKey} not present in lhs`,
         }
 
         return differences.push(diffResult)
@@ -63,7 +63,7 @@ const compareObjects = (
             const diffResult: IDiffResultModel = {
               path: formattedKey,
               resultType: "difference in element value",
-              message: `field ${formattedKey} has lhs value ${resultValueA} and rhs value ${resultValueB}`
+              message: `field ${formattedKey} has lhs value ${resultValueA} and rhs value ${resultValueB}`,
             }
 
             return differences.push(diffResult)
@@ -79,7 +79,7 @@ const compareObjects = (
         const diffResult: IDiffResultModel = {
           path: formattedKey,
           resultType: "missing element",
-          message: `field ${formattedKey} not present in rhs`
+          message: `field ${formattedKey} not present in rhs`,
         }
 
         return differences.push(diffResult)
@@ -104,7 +104,7 @@ const compareObjects = (
           const diffResult: IDiffResultModel = {
             path: formattedKey,
             resultType: "missing element",
-            message: `field ${formattedKey}[${i}] not present in rhs`
+            message: `field ${formattedKey}[${i}] not present in rhs`,
           }
 
           return differences.push(diffResult)
@@ -113,7 +113,7 @@ const compareObjects = (
           const diffResult: IDiffResultModel = {
             path: formattedKey,
             resultType: "missing element",
-            message: `element ${formattedKey}[${i}] not present in lhs`
+            message: `element ${formattedKey}[${i}] not present in lhs`,
           }
 
           return differences.push(diffResult)
