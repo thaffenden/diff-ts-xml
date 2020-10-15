@@ -20,7 +20,8 @@
     "lint:fix": "npm run lint -- --fix",
     "build": "npm run clean && tsc -p tsconfig.production.json",
     "build:watch": "tsc -w -p tsconfig.production.json",
-    "prepublishOnly": "npm run test && npm run lint && npm run build"
+    "prepublishOnly": "npm run test && npm run lint && npm run build",
+    "postinstall": "tsc -p tsconfig.production.json"
   },
   "keywords": [
     "xml compare",
