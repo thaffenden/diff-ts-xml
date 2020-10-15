@@ -1,5 +1,5 @@
 {
-  "name": "diff-js-xml",
+  "name": "diff-ts-xml",
   "version": "2.0.0",
   "description": "XML JSON object compare module",
   "repository": {
@@ -21,7 +21,7 @@
     "build": "npm run clean && tsc -p tsconfig.production.json",
     "build:watch": "tsc -w -p tsconfig.production.json",
     "prepublishOnly": "npm run test && npm run lint && npm run build",
-    "postinstall": "tsc -p tsconfig.production.json"
+    "postinstall": "./node_modules/.bin/tsc -p tsconfig.production.json"
   },
   "keywords": [
     "xml compare",
