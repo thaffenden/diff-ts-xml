@@ -1,7 +1,7 @@
 import { should } from "chai"
 import * as tool from "../src/index"
 
-import { IDiffResultModel } from "../lib/model/diff-result-model"
+import { IDiffResultModel } from "../src/model/diff-result-model"
 
 should()
 
